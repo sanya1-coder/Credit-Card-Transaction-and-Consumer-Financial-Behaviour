@@ -99,10 +99,7 @@ The baseline MAE will be computed before model building. If the baseline MAE is 
 ---
 
 ## 5. Falsifiable hypothesis
-
-One sentence the data can prove wrong. A sign, a threshold, or a rank ordering. Not "we will analyse X" — "X will be greater than Y by at least Z".
-
-*Write here:*
+Consumers in the bottom income quintile will have a mean Credit Utilization Ratio at least 20 percentage points higher than consumers in the top income quintile, and revolvers (those who carry month-end balances) will exhibit a mean Credit Utilization Ratio exceeding 60%, compared to below 30% for transactors (those who pay in full monthly.
 
 ---
 
@@ -122,29 +119,18 @@ If any source requires manual scraping, permissions, or a login you do not yet h
 ---
 
 ## 7. Scope limits
-
-Bullet list of things you are **not** claiming and **not** responsible for. Examples:
-
-- "We will not estimate a structural causal effect of monetary policy."
-- "We will not harmonise district boundaries across NFHS rounds; analysis is at state level."
-- "We will not ship a mobile version of the app."
-
-This section protects you at grading time. If you clearly say "we are not doing X," you will not be graded on X.
-
-*Write here:*
+-We will not estimate a structural causal effect of income or spending behaviour on credit utilization; all findings are descriptive associations only.
+-We will not make individual-level default predictions; default probability is a secondary diagnostic, not the graded outcome.
+-We will not generalise findings beyond the population represented in the dataset; no claims are made about national or cross-country credit behaviour.
+-We will not harmonise across multiple datasets or time periods; analysis is confined to the single dataset committed under data/.
+-We will not build or deploy a consumer-facing application, dashboard, or real-time scoring tool.
+-We will not validate results against external credit bureau benchmarks or proprietary bank data.
 
 ---
 
 ## 8. Risks and fallback
+Risk: The dataset does not contain an explicit income variable, making it impossible to construct income quintiles as specified in the success threshold. Fallback: We will proxy income groups using credit limit deciles (since credit limits are strongly correlated with assessed income at card issuance), segment the population into five decile-based groups, and report mean Credit Utilization Ratio with standard errors for each group. The substitution will be clearly documented in the README and results section.
 
-One named failure mode, and the fallback analysis you will run if it materialises. Examples:
-
-- "If the 2022-23 PPAC data is not released by the checkpoint, we will use the FY 2021-22 panel and document the truncation."
-- "If DiD parallel-trends fails visually, we fall back to a state-fixed-effects panel regression with year trends and report both."
-
-One risk is enough. Two is fine. Zero means you have not thought hard enough.
-
-*Write here:*
 
 ---
 
