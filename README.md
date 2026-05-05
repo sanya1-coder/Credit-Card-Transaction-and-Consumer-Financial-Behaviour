@@ -92,25 +92,9 @@ The baseline will produce an out-of-sample Mean Absolute Error (MAE) on the held
 
 How it will be computed:
 
-CUR
-i,t
-	​
-
-=
-CUR
-train
-	​
+​
 
 
-where:
-
-CUR
-i,t
-	​
-
- = predicted Credit Utilization Ratio for individual i in month t
-CUR
-train
 	​
 
  = average Credit Utilization Ratio in the training sample
