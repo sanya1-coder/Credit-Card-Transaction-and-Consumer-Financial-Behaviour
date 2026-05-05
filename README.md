@@ -4,3 +4,10 @@ visualization techniques, the study aims to uncover insights that can support be
 
 Project Title: Credit Card Transactions and Consumer Financial Behaviour
 Domain: Data Analytics / Financial Technology (FinTech) / Behavioral Economics
+Field	Value
+Team Members	Sanya, Astha,Divya,Harsh,Siddhanth
+Project- Type	Analytical
+Estimated Hours per person	45 Hours
+Charter version	V1
+Date	2026-04-25
+
