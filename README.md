@@ -82,15 +82,44 @@ Produce stratified estimates of Credit Utilization Ratio across at least 5 consu
 
 ## 4. Baseline to beat
 
-The naive or prior number your threshold is measured against. Examples:
+Baseline model:
+Mean-prediction baseline.
 
-- A previous study's coefficient or error.
-- A simple AR(1) or last-value forecast.
-- An unadjusted before-after difference.
+Before building any advanced model, the project will first compute a simple baseline where every individual’s predicted Credit Utilization Ratio is equal to the average Credit Utilization Ratio in the training data.
 
-State **what the baseline produces numerically** if you know it, or how you will compute it before the checkpoint if you do not. You must compute the baseline *before* you build anything fancy.
+Baseline metric:
+The baseline will produce an out-of-sample Mean Absolute Error (MAE) on the held-out 20% test set.
 
-*Write here:*
+How it will be computed:
+
+CUR
+i,t
+	​
+
+=
+CUR
+train
+	​
+
+
+where:
+
+CUR
+i,t
+	​
+
+ = predicted Credit Utilization Ratio for individual i in month t
+CUR
+train
+	​
+
+ = average Credit Utilization Ratio in the training sample
+
+Success requirement:
+The final model must achieve MAE ≤ 5 percentage points, and it must improve over the baseline MAE.
+
+Expected baseline:
+The baseline MAE will be computed before model building. If the baseline MAE is around 8 percentage points or higher, the final model must reduce prediction error meaningfully below that level.
 
 ---
 
