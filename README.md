@@ -77,16 +77,10 @@ Only one main outcome. Secondary outcomes go under "Scope limits" as things you 
 
 ## 3. Main quantitative success threshold
 
-A single numeric bar. Your project is a success if the delivered metric crosses this bar, and a failure if it does not. Pick one form:
+Predictive (Recommended for your project)
 
-- **Predictive:** "Out-of-sample [metric] on [held-out slice] is at most X, versus baseline Y."
-- **Causal:** "Point estimate of [parameter] has 95% CI excluding zero, and |estimate| ≥ X [unit]."
-- **Descriptive:** "Produce stratified estimates of [outcome] across [N ≥ __] strata, each with sample size ≥ __ and documented standard error."
-
-If you cannot write a number, you do not yet have a project — you have a topic. Go back to Section 2.
-
-*Write here:*
-
+Main quantitative success threshold (Predictive):
+Out-of-sample Mean Absolute Error (MAE) in predicting the Credit Utilization Ratio on a held-out test set (20% of data) is ≤ 5 percentage points, compared to a baseline model MAE of ≥ 8 percentage points.
 ---
 
 ## 4. Baseline to beat
