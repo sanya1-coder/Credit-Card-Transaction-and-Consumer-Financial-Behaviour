@@ -53,9 +53,19 @@ full).
 
 The single number your project centres on. State:
 
-- **Name** of the variable
-- **Unit** (percentage, Rs/month, points, deaths per 1000, etc.)
-- **Source table/column/field**
+- **Name** Credit Utilization Ratio
+- **Unit** Percentage (%)
+- **Source table/column/field**credit_used (total outstanding balance)
+credit_limit (maximum available credit)
+
+Constructed variable:
+
+Credit Utilization Ratio=
+credit_limit
+credit_used
+	​
+
+×100
 - **Population / panel** (which rows: which years, which geographies, which people)
 
 Only one main outcome. Secondary outcomes go under "Scope limits" as things you *may* report but will not be graded on.
