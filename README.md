@@ -90,15 +90,6 @@ Before building any advanced model, the project will first compute a simple base
 Baseline metric:
 The baseline will produce an out-of-sample Mean Absolute Error (MAE) on the held-out 20% test set.
 
-How it will be computed:
-
-​
-
-
-	​
-
- = average Credit Utilization Ratio in the training sample
-
 Success requirement:
 The final model must achieve MAE ≤ 5 percentage points, and it must improve over the baseline MAE.
 
