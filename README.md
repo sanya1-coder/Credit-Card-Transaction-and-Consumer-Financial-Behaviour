@@ -111,8 +111,10 @@ Consumers in the bottom income quintile will have a mean Credit Utilization Rati
 
    - Access method: Direct download via Kaggle web interface (manual) or via the Kaggle API (kaggle datasets download). Requires a free Kaggle account and an API token (kaggle.json). No paywall or institutional login beyond account registration.
 
-10-line fetch script:
-- *(A 10-line probe cell per source is in `notebooks/00_data_probe.ipynb`.)*
+10-line fetch script: import pandas as pd
+
+
+
 
 
 ---
