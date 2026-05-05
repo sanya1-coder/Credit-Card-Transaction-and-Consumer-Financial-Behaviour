@@ -26,11 +26,11 @@
 
 | Field | Value |
 |---|---|
-| Team members | _(Sanya Mittal, Astha Rawat, Divya Mahendru, Harsh Lathwal, Siddhanth Pandita)_ |
-| Project type | _(descriptive )_ |
-| Estimated hours per person | _( 50 hours)_ |
+| Team members | _Sanya Mittal, Astha Rawat, Divya Mahendru, Harsh Lathwal, Siddhanth Pandita_ |
+| Project type | _descriptive _ |
+| Estimated hours per person | _ 50 hours_ |
 | Charter version | v1 |
-| Date | _(2026-04-25)_ |
+| Date | _2026-04-25_ |
 
 **Project type notes.** Predictive = you are trying to forecast or predict a quantity. Causal = you are trying to estimate the effect of a policy or intervention. Descriptive = you are measuring patterns or disparities without making a causal claim. The success threshold looks different for each type, so pick the one that fits your main question.
 
