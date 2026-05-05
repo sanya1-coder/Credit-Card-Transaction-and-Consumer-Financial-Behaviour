@@ -38,9 +38,14 @@
 
 ## 1. Problem and stakeholder
 
-One paragraph. Who is the specific person, institution, or policy body that would care about the answer, and what decision does the answer inform? Generic "policymakers" is not a stakeholder; "the Ministry of Petroleum and Natural Gas deciding whether to extend PMUY subsidies in FY 2026-27" is.
+Despite the convenience of credit cards, they often lead to impulsive buying and high-
+interest debt accumulation. Financial institutions face the constant challenge of predicting
+credit defaults and managing risk, while consumers often lack personalized insights into
+their spending habits. There is a critical need to analyze transaction data to accurately
+segment customers, predict default probabilities, and understand the behavioral drivers
+behind credit reliance (e.g., &quot;revolvers&quot; who carry debt versus &quot;transactors&quot; who pay in
+full).
 
-*Write here:*
 
 ---
 
