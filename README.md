@@ -59,14 +59,15 @@ The single number your project centres on. State:
 credit_limit (maximum available credit)
 
 Constructed variable:
+credit_used (total outstanding balance)
+credit_limit (maximum available credit)
 
-Credit Utilization Ratio=
-credit_limit
-credit_used
-	​
 
-×100
 - **Population / panel** (which rows: which years, which geographies, which people)
+- Individuals holding credit cards
+Observations at the monthly level
+Time period: (e.g., 2020–2024 — update based in our dataset)
+Geography: (e.g., India / global dataset — specify accordingly)
 
 Only one main outcome. Secondary outcomes go under "Scope limits" as things you *may* report but will not be graded on.
 
