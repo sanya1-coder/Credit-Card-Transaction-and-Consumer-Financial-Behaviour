@@ -77,11 +77,8 @@ Only one main outcome. Secondary outcomes go under "Scope limits" as things you 
 
 ## 3. Main quantitative success threshold
 
-Predictive (Recommended for your project)
-
-Main quantitative success threshold (Predictive):
-Out-of-sample Mean Absolute Error (MAE) in predicting the Credit Utilization Ratio on a held-out test set (20% of data) is ≤ 5 percentage points, compared to a baseline model MAE of ≥ 8 percentage points.
----
+Main quantitative success threshold (Descriptive):
+Produce stratified estimates of Credit Utilization Ratio across at least 5 consumer groups (e.g., income quintiles or spending categories), each with sample size ≥ 100 observations, and report mean and standard errors for each group.
 
 ## 4. Baseline to beat
 
