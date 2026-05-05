@@ -104,17 +104,16 @@ Consumers in the bottom income quintile will have a mean Credit Utilization Rati
 ---
 
 ## 6. Data sources and access plan
+- **Credit Card Transactions Dataset:**
+Name and URL: Credit Card Transactions Dataset — https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions
 
-For each source:
+Licence or permission to use: CC0 1.0 Universal (Public Domain Dedication) — no restrictions on use, modification, or redistribution. Free for academic use without attribution requirement.
 
-- **Name and URL/API endpoint**
-- **Licence or permission to use**
-- **Access method** (direct download, API call, authenticated portal)
-- **A 10-line script or notebook cell** that fetches one row and prints it
+Access method: Direct download via Kaggle web interface (manual) or via the Kaggle API (kaggle datasets download). Requires a free Kaggle account and an API token (kaggle.json). No paywall or institutional login beyond account registration.
 
-If any source requires manual scraping, permissions, or a login you do not yet have, flag it here with a mitigation plan.
+10-line fetch script:
+- *(A 10-line probe cell per source is in `notebooks/00_data_probe.ipynb`.)*
 
-*Write here:*
 
 ---
 
