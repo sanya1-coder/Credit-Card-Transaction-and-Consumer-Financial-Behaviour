@@ -119,12 +119,9 @@ If any source requires manual scraping, permissions, or a login you do not yet h
 ---
 
 ## 7. Scope limits
--We will not estimate a structural causal effect of income or spending behaviour on credit utilization; all findings are descriptive associations only.
--We will not make individual-level default predictions; default probability is a secondary diagnostic, not the graded outcome.
--We will not generalise findings beyond the population represented in the dataset; no claims are made about national or cross-country credit behaviour.
--We will not harmonise across multiple datasets or time periods; analysis is confined to the single dataset committed under data/.
--We will not build or deploy a consumer-facing application, dashboard, or real-time scoring tool.
--We will not validate results against external credit bureau benchmarks or proprietary bank data.
+We will not estimate a structural causal effect of income or spending behaviour on credit utilization; all findings are descriptive associations only. We will not make individual-level default predictions; default probability is a secondary diagnostic, not the graded outcome.
+We will not generalise findings beyond the population represented in the dataset; no claims are made about national or cross-country credit behaviour.
+We will not harmonise across multiple datasets or time periods; analysis is confined to the single dataset committed under data/.
 
 ---
 
