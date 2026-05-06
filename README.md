@@ -157,4 +157,4 @@ If you cannot commit to this, your project is probably still too broad. Talk to 
 
 By submitting this charter, the team agrees that this is the plan the project will be graded against. The instructor will not penalize you just because the topic turns out to be difficult, as long as the project stays honest and within the approved scope.
 
-*Signed:* _(team member names)_
+*Signed:*  Sanya Mittal, Astha Rawat, Divya Mahendru, Harsh Lathwal, Siddhanth Pandita
