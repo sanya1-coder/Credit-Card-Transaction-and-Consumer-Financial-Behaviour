@@ -32,8 +32,6 @@
 | Charter version | v1 |
 | Date | 2026-04-25 |
 
-**Project type notes.** Predictive = you are trying to forecast or predict a quantity. Causal = you are trying to estimate the effect of a policy or intervention. Descriptive = you are measuring patterns or disparities without making a causal claim. The success threshold looks different for each type, so pick the one that fits your main question.
-
 ---
 
 ## 1. Problem and stakeholder
