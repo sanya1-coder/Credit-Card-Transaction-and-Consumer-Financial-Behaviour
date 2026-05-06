@@ -67,9 +67,8 @@ credit_limit (maximum available credit)
 - Individuals holding credit cards
 Observations at the monthly level
 Time period: (e.g., 2020–2024 — update based in our dataset)
-Geography: (e.g., India / global dataset — specify accordingly)
+Geography: (e.g., India / global dataset)
 
-Only one main outcome. Secondary outcomes go under "Scope limits" as things you *may* report but will not be graded on.
 
 
 
