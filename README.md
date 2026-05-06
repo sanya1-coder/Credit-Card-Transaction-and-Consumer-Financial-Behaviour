@@ -47,7 +47,7 @@ full).
 
 ---
 
-## 2. Main outcome variable
+## 2. Main outcome variable 
 
 The single number your project centres on. State:
 
