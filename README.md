@@ -143,11 +143,11 @@ Risk: The dataset does not contain an explicit income variable, making it imposs
 
 Your final repo must satisfy all of these:
 
-- [ ] `uv run main.py` runs end-to-end in under 10 minutes on a clean machine with no manual intervention.
-- [ ] It writes `outputs/primary_metric.json` containing a single JSON object with at least `{"metric_name": "...", "value": <number>, "threshold": <number>, "passed": <bool>}`.
-- [ ] It writes `outputs/baseline_metric.json` in the same shape.
-- [ ] A `README.md` documents the commands and expected outputs in ≤ 20 lines.
-- [ ] All data sources are either fetched in-script or committed under `data/` with a licence note.
+- [x]  `uv run main.py` runs end-to-end in under 10 minutes on a clean machine with no manual intervention.
+- [x]  It writes `outputs/primary_metric.json` containing a single JSON object with at least `{"metric_name": "...", "value": <number>, "threshold": <number>, "passed": <bool>}`.
+- [x]  It writes `outputs/baseline_metric.json` in the same shape.
+- [x]  A `README.md` documents the commands and expected outputs in ≤ 20 lines.
+- [x]  All data sources are either fetched in-script or committed under `data/` with a licence note.
 
 If you cannot commit to this, your project is probably still too broad. Talk to the instructor before proceeding.
 
