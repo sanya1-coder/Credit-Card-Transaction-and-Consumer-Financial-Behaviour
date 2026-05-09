@@ -1,0 +1,22 @@
+{
+  "H1_utilisation_gradient": {
+    "description": "Bottom CL quintile CUR \u2265 top quintile CUR + 20 pp",
+    "bottom_quintile_mean_CUR": 94.7,
+    "top_quintile_mean_CUR": 53.98,
+    "gap_pp": 40.72,
+    "n_bottom": 400,
+    "n_top": 400,
+    "t_stat": 18.0943,
+    "p_value": 0.0,
+    "h1_supported": true
+  },
+  "H2_revolver_threshold": {
+    "revolver_mean_CUR": 75.65,
+    "transactor_mean_CUR": 86.25,
+    "n_revolvers": 1683,
+    "n_transactors": 223,
+    "t_stat": -4.1225,
+    "p_value": 0.99998,
+    "h2_supported": false
+  }
+}

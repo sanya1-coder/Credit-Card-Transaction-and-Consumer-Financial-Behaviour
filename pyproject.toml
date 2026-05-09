@@ -1,0 +1,16 @@
+[project]
+name = "eco6810-credit-utilisation"
+version = "0.1.0"
+description = "ECO 6810 Final Project — Credit Utilisation Ratio Prediction"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scikit-learn>=1.3",
+    "scipy>=1.11",
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+]
+
+[tool.uv]
+dev-dependencies = []

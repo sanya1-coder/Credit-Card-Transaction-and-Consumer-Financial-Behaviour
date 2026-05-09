@@ -1,0 +1,26 @@
+{
+  "metric_name": "MAE_model",
+  "description": "Mean Absolute Error of the Ridge regression model",
+  "value": 12.7915,
+  "threshold": 15.0,
+  "passed": true,
+  "n_test": 400,
+  "model": "Ridge(alpha=1.0)",
+  "features": [
+    "Yearly Income",
+    "Total Debt",
+    "FICO Score",
+    "Total_Credit_Limit",
+    "Num_Cards",
+    "Txn_Count",
+    "Total_Spend",
+    "Mean_Txn",
+    "Std_Txn",
+    "Max_Txn",
+    "Current Age",
+    "Per Capita Inc",
+    "Debt_to_Income",
+    "Spend_to_Limit",
+    "Income_per_Card"
+  ]
+}

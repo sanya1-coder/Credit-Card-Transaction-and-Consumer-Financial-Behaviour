@@ -1,0 +1,9 @@
+{
+  "metric_name": "MAE_baseline",
+  "description": "Mean Absolute Error of the global-mean prediction baseline",
+  "value": 30.4065,
+  "threshold": 15.0,
+  "passed": false,
+  "n_test": 400,
+  "train_mean_CUR": 77.9017
+}

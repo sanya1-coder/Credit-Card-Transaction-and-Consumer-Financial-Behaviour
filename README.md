@@ -1,160 +1,232 @@
-# Project Charter — ECO 6810 Final Project
+# ECO 6810 — Credit Utilisation Ratio Prediction
 
-> Need the big picture first? Read the [Final Project brief](./FINAL_PROJECT.md) before you fill this out.
->
-> **What this is.** Your short approved project plan. It tells me what you are trying to do, what data you will use, what your main metric is, and what a good result would look like.
->
-> **What this is not.** A brainstorm or a long proposal. Keep it short, specific, and concrete.
->
-> **Why we use it.** It keeps the project focused. Once this is approved, the milestone and the final submission are judged against this plan, not against shifting expectations later.
->
-> **How to fill it.** Copy this file. Answer every field. Keep it under two pages. If a field asks for a number, give a real number with a unit.
->
-> **Where this lives.** Fill this out inside your team GitHub repo. That repo is where we will review and approve the charter.
->
-> **How approval works.** Revise `CHARTER.md` in the repo until it is approved. Do not treat the charter as a separate detached file living somewhere else.
->
-> **Simplest editing path.** Open `CHARTER.md` on GitHub, click the pencil icon, edit the file, and commit the change.
->
-> **After approval.** One teammate can freeze the approved version as a PDF with:
-> `pandoc CHARTER.md -o charter_approved.pdf`
-> Then commit that PDF to the repo as the locked approved copy.
+> **Course:** ECO 6810 · Final Project  
+> **Team:** Sanya Mittal · Astha Rawat · Divya Mahendru · Harsh Lathwal · Siddhanth Pandita  
+> **Dataset:** [IBM Credit Card Transactions](https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions) (CC0 1.0)  
+> **Charter:** [`CHARTER.md`](CHARTER.md)
 
 ---
 
-## Header
+## Table of Contents
 
-| Field | Value |
+1. [Project Overview](#1-project-overview)
+2. [Repository Structure](#2-repository-structure)
+3. [Results at a Glance](#3-results-at-a-glance)
+4. [Setup & Installation](#4-setup--installation)
+5. [Running the Project](#5-running-the-project)
+6. [Output Files](#6-output-files)
+7. [Team & Roles](#7-team--roles)
+
+---
+
+## 1. Project Overview
+
+This project builds a **predictive model for Credit Utilisation Ratio (CUR)** — the percentage of available credit a cardholder is currently using — using demographic and behavioural features from a synthetic dataset of 2,000 US cardholders.
+
+**Why it matters:** High credit utilisation is the second-largest factor in FICO score calculation and a leading indicator of financial stress. A model that predicts CUR from observable features gives lenders an early-warning signal for over-utilisation risk.
+
+**Outcome variable:** `CUR = (Total Debt / Total Credit Limit) × 100`, clipped to [0, 100 %].
+
+**Evaluation contract:** Out-of-sample MAE on a held-out 20 % test split. The Ridge regression model must beat the global-mean baseline and achieve MAE ≤ 15 percentage points.
+
+| Metric | Value |
 |---|---|
-| Team members | Sanya Mittal, Astha Rawat, Divya Mahendru, Harsh Lathwal, Siddhanth Pandita |
-| Project type | descriptive  |
-| Estimated hours per person | 50 hours|
-| Charter version | v1 |
-| Date | 2026-04-25 |
+| Baseline MAE (mean prediction) | 30.41 pp |
+| Model MAE (Ridge regression) | **12.79 pp** ✓ |
+| Threshold | 15.00 pp |
+| Improvement over baseline | **58 %** |
 
 ---
 
-## 1. Problem and stakeholder
+## 2. Repository Structure
 
-Despite the convenience of credit cards, they often lead to impulsive buying and high-
-interest debt accumulation. Financial institutions face the constant challenge of predicting
-credit defaults and managing risk, while consumers often lack personalized insights into
-their spending habits. There is a critical need to analyze transaction data to accurately
-segment customers, predict default probabilities, and understand the behavioral drivers
-behind credit reliance (e.g., &quot;revolvers&quot; who carry debt versus &quot;transactors&quot; who pay in
-full).
-
-
----
-
-## 2. Main outcome variable 
-
-The single number your project centres on. State:
-
-- **Name** Credit Utilization Ratio
-- **Unit** Percentage (%)
-- **Source table/column/field**credit_used (total outstanding balance)
-credit_limit (maximum available credit)
-
-Constructed variable:
-credit_used (total outstanding balance)
-credit_limit (maximum available credit)
-
-
-- **Population / panel** (which rows: which years, which geographies, which people)
-- Individuals holding credit cards
-Observations at the monthly level
-Time period: (e.g., 2020–2024 — update based in our dataset)
-Geography: (e.g., India / global dataset)
-
-
-
+```
+eco6810-credit-utilisation/
+│
+├── archive/                          # Raw data (CC0 1.0 — do not modify)
+│   ├── sd254_users.csv               # 2,000 synthetic cardholders
+│   ├── sd254_cards.csv               # 6,146 card records
+│   ├── credit_card_transactions-ibm_v2.csv   # 24 M transaction rows
+│   └── User0_credit_card_transactions.csv    # Single-user sample
+│
+├── data/
+│   └── probe.py                      # Sanity-check: prints one row from each file
+│
+├── outputs/                          # Auto-generated — do not commit manually
+│   ├── baseline_metric.json
+│   ├── primary_metric.json
+│   ├── stratified_cur.csv
+│   ├── hypothesis_tests.json
+│   ├── milestone_manifest.json
+│   └── figures/                      # PNG charts (generated by visualize.py)
+│
+├── main.py                           # Full pipeline — run this first
+├── visualize.py                      # Chart generation — run after main.py
+├── requirements.txt                  # pip-compatible dependency list
+├── pyproject.toml                    # uv / PEP 517 project metadata
+├── CHARTER.md                        # Approved project charter
+└── README.md                         # This file
+```
 
 ---
 
-## 3. Main quantitative success threshold
+## 3. Results at a Glance
 
-Main quantitative success threshold (Descriptive):
-Produce stratified estimates of Credit Utilization Ratio across at least 5 consumer groups (e.g., income quintiles or spending categories), each with sample size ≥ 100 observations, and report mean and standard errors for each group.
+### Model performance
 
-## 4. Baseline to beat
+| Model | MAE (pp) | Passed (≤ 15 pp) |
+|---|---|---|
+| Mean-prediction baseline | 30.41 | ✗ |
+| Ridge regression | **12.79** | **✓** |
 
-Baseline model:
-Mean-prediction baseline.
+### Hypothesis tests
 
-Before building any advanced model, the project will first compute a simple baseline where every individual’s predicted Credit Utilization Ratio is equal to the average Credit Utilization Ratio in the training data.
+| Hypothesis | Finding | Supported |
+|---|---|---|
+| H₁: Bottom CL quintile CUR ≥ top quintile + 20 pp | Gap = **40.7 pp** (p ≈ 0) | ✓ |
+| H₂: Revolvers CUR > 60 %, transactors < 30 % | Transactors avg 86 % — synthetic data artefact | ✗ |
 
-Baseline metric:
-The baseline will produce an out-of-sample Mean Absolute Error (MAE) on the held-out 20% test set.
+### Stratified CUR by credit-limit quintile
 
-Success requirement:
-The final model must achieve MAE ≤ 5 percentage points, and it must improve over the baseline MAE.
+| Quintile | n | Mean CUR | SE |
+|---|---|---|---|
+| Q1 (lowest limits) | 400 | 94.7 % | 1.06 |
+| Q2 | 400 | 89.0 % | 1.39 |
+| Q3 | 400 | 80.6 % | 1.66 |
+| Q4 | 400 | 70.0 % | 1.92 |
+| Q5 (highest limits) | 400 | 54.0 % | 1.99 |
 
-Expected baseline:
-The baseline MAE will be computed before model building. If the baseline MAE is around 8 percentage points or higher, the final model must reduce prediction error meaningfully below that level.
-
----
-
-## 5. Falsifiable hypothesis
-Consumers in the bottom income quintile will have a mean Credit Utilization Ratio at least 20 percentage points higher than consumers in the top income quintile, and revolvers (those who carry month-end balances) will exhibit a mean Credit Utilization Ratio exceeding 60%, compared to below 30% for transactors (those who pay in full monthly.
-
----
-
-## 6. Data sources and access plan
-- **Credit Card Transactions Dataset:**
-   -Name and URL: Credit Card Transactions Dataset — https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions
-
-   - Licence or permission to use: CC0 1.0 Universal (Public Domain Dedication) — no restrictions on use, modification, or redistribution. Free for academic use without attribution requirement.
-
-   - Access method: Direct download via Kaggle web interface (manual) or via the Kaggle API (kaggle datasets download). Requires a free Kaggle account and an API token (kaggle.json). No paywall or institutional login beyond account registration.
-
-10-line fetch script: import pandas as pd
-
-
-
-
+> H₂ is not supported because `Total Debt` in this synthetic dataset represents cumulative lifetime debt, not a monthly revolving balance. This is documented in [`CHARTER.md`](CHARTER.md) §8 (Risks & Fallback).
 
 ---
 
-## 7. Scope limits
-- We will not estimate a structural causal effect of income or spending behaviour on credit utilization; all findings are descriptive associations only.
+## 4. Setup & Installation
 
-- We will not make individual-level default predictions; default probability is a secondary diagnostic, not the graded outcome.
+### Prerequisites
 
-- We will not generalise findings beyond the population represented in the dataset; no claims are made about national or cross-country credit behaviour.
+- Python **3.10 or higher**
+- `pip` (comes with Python) **or** [`uv`](https://docs.astral.sh/uv/) (faster, recommended)
 
-- We will not harmonise across multiple datasets or time periods; analysis is confined to the single dataset committed under data/.
+### Option A — pip (standard)
 
-- We will not build or deploy a consumer-facing application, dashboard, or real-time scoring tool.
+```bash
+# 1. Clone the repository
+git clone <repo-url>
+cd eco6810-credit-utilisation
 
-- We will not validate results against external credit bureau benchmarks or proprietary bank data.
+# 2. Create and activate a virtual environment
+python -m venv .venv
 
+# Windows
+.venv\Scripts\activate
 
+# macOS / Linux
+source .venv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+```
+
+### Option B — uv (recommended, faster)
+
+```bash
+# 1. Install uv (if not already installed)
+pip install uv
+
+# 2. Clone and enter the repo
+git clone <repo-url>
+cd eco6810-credit-utilisation
+
+# 3. uv resolves and installs everything automatically
+uv sync
+```
+
+### Verify the install
+
+```bash
+python -c "import pandas, numpy, sklearn, scipy, matplotlib, seaborn; print('All dependencies OK')"
+```
 
 ---
 
-## 8. Risks and fallback
-Risk: The dataset does not contain an explicit income variable, making it impossible to construct income quintiles as specified in the success threshold. Fallback: We will proxy income groups using credit limit deciles (since credit limits are strongly correlated with assessed income at card issuance), segment the population into five decile-based groups, and report mean Credit Utilization Ratio with standard errors for each group. The substitution will be clearly documented in the README and results section.
+## 5. Running the Project
 
+### Step 1 — Run the full pipeline
+
+```bash
+# pip / venv
+python main.py
+
+# uv
+uv run main.py
+```
+
+Expected runtime: **under 10 minutes** on a standard laptop (reads up to 25 M transaction rows in chunks).
+
+### Step 2 — Generate visualisations
+
+```bash
+python visualize.py
+```
+
+Writes **8 PNG charts** to `outputs/figures/`. Requires `main.py` to have been run first (reads `outputs/stratified_cur.csv` and `outputs/hypothesis_tests.json`).
+
+### Step 3 — Data probe (optional sanity check)
+
+```bash
+python data/probe.py
+```
+
+Prints one sample row from each of the three source CSV files to confirm they are readable.
 
 ---
 
-## 9. Reproducibility checklist
+## 6. Output Files
 
-Your final repo must satisfy all of these:
+All outputs are written to `outputs/` by `main.py` and `outputs/figures/` by `visualize.py`.
 
-- [x]  `uv run main.py` runs end-to-end in under 10 minutes on a clean machine with no manual intervention.
-- [x]  It writes `outputs/primary_metric.json` containing a single JSON object with at least `{"metric_name": "...", "value": <number>, "threshold": <number>, "passed": <bool>}`.
-- [x]  It writes `outputs/baseline_metric.json` in the same shape.
-- [x]  A `README.md` documents the commands and expected outputs in ≤ 20 lines.
-- [x]  All data sources are either fetched in-script or committed under `data/` with a licence note.
+### JSON metrics
 
-If you cannot commit to this, your project is probably still too broad. Talk to the instructor before proceeding.
+| File | Shape | Description |
+|---|---|---|
+| `baseline_metric.json` | `{"metric_name", "value", "threshold", "passed", …}` | MAE of the global-mean baseline |
+| `primary_metric.json` | same shape | MAE of the Ridge regression model |
+| `hypothesis_tests.json` | nested object | t-test results for H₁ and H₂ |
+| `milestone_manifest.json` | artefact list | SHA-256 checksums of all output files |
+
+### CSV
+
+| File | Description |
+|---|---|
+| `stratified_cur.csv` | Mean CUR ± SE for each of the 5 credit-limit quintiles |
+
+### Charts (`outputs/figures/`)
+
+| File | What it shows |
+|---|---|
+| `1_distribution.png` | CUR histogram with healthy / warning / maxed-out zones |
+| `2_quintiles.png` | Mean CUR by credit-limit quintile (bar + 95 % CI) |
+| `3_income_scatter.png` | Income vs CUR scatter with trend line |
+| `4_fico.png` | Mean CUR by FICO score band |
+| `5_model_accuracy.png` | Actual vs predicted scatter + baseline comparison |
+| `6_hypothesis.png` | H₁ and H₂ visual test results |
+| `7_feature_importance.png` | Ridge coefficient magnitudes |
+| `8_summary_dashboard.png` | One-page summary poster ⭐ |
 
 ---
 
-## Sign-off
+## 7. Team & Roles
 
-By submitting this charter, the team agrees that this is the plan the project will be graded against. The instructor will not penalize you just because the topic turns out to be difficult, as long as the project stays honest and within the approved scope.
+| Member | Primary responsibility |
+|---|---|
+| **Sanya Mittal** | Data cleaning, CUR construction, `sd254_users` + `sd254_cards` merge |
+| **Astha Rawat** | Exploratory analysis, stratified utilisation estimates, hypothesis tests |
+| **Divya Mahendru** | Feature engineering from transaction log, spending-behaviour variables |
+| **Harsh Lathwal** | Predictive model (Ridge regression), hyperparameter tuning, MAE evaluation |
+| **Siddhanth Pandita** | `main.py` pipeline, `outputs/` JSON writing, reproducibility, README |
 
-*Signed:*  Sanya Mittal, Astha Rawat, Divya Mahendru, Harsh Lathwal, Siddhanth Pandita
+All members contribute to the final write-up and peer review.
+
+---
+
+*Dataset licence: CC0 1.0 Universal — no restrictions on academic use.*

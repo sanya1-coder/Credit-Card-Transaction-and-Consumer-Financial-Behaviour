@@ -1,0 +1,53 @@
+{
+  "project": "ECO 6810 \u2014 Credit Utilisation Prediction",
+  "team": [
+    "Sanya Mittal",
+    "Astha Rawat",
+    "Divya Mahendru",
+    "Harsh Lathwal",
+    "Siddhanth Pandita"
+  ],
+  "generated_at": "2026-05-09T22:39:44.248556",
+  "artefacts": [
+    {
+      "file": "baseline_metric.json",
+      "size_bytes": 228,
+      "sha256": "4bab0af04bf8dc0e54e4ac78efaf0146b21897a38bc8426524b3ee9828a4f34f"
+    },
+    {
+      "file": "hypothesis_tests.json",
+      "size_bytes": 562,
+      "sha256": "07de482b657455e63308af984fb77bcb8dd534c612f53a33fb57bfbf467bee69"
+    },
+    {
+      "file": "milestone_manifest.json",
+      "size_bytes": 1584,
+      "sha256": "3a354a641dbf3c0bbb689d451dc1b15345b0859f44a1e3d315b2edf1eef3fb50"
+    },
+    {
+      "file": "model_coefficients.json",
+      "size_bytes": 672,
+      "sha256": "531caaa3d05b72d64bbe21a47b650e22f82ffc344e9c2ebb7c9d02ba66a7e64d"
+    },
+    {
+      "file": "primary_metric.json",
+      "size_bytes": 544,
+      "sha256": "83c4ed8a398939739f65c61b669f20bf9327b0c627adf1e225b8be189c35595d"
+    },
+    {
+      "file": "processed_data.csv",
+      "size_bytes": 436295,
+      "sha256": "2caa68d48eaab90b35a0532965c0330ffa7450a6a329798f2d9dc1e5f179417b"
+    },
+    {
+      "file": "stratified_cur.csv",
+      "size_bytes": 242,
+      "sha256": "5abb036c5375cc71ec88892eba5ca12e4fbf1f04409b8f5fb7269984fff3bda7"
+    },
+    {
+      "file": "test_results.csv",
+      "size_bytes": 10434,
+      "sha256": "061c643be455be08c8a59ef5166d54833786af77f69f0f154ae6bea3f1f68f71"
+    }
+  ]
+}
