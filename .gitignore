@@ -1,0 +1,15 @@
+# Large raw data file (2.2 GB) - exceeds GitHub's limits
+# Download from Kaggle: https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions
+archive/credit_card_transactions-ibm_v2.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
