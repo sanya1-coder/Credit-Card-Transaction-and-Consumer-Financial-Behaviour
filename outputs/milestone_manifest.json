@@ -7,7 +7,37 @@
     "Harsh Lathwal",
     "Siddhanth Pandita"
   ],
-  "generated_at": "2026-05-09T22:39:44.248556",
+  "generated_at": "2026-05-13T06:07:44.047353",
+  "charter": {
+    "file": "CHARTER.md",
+    "status": "approved",
+    "primary_metric": "MAE (Mean Absolute Error) of Ridge regression on CUR",
+    "threshold": "MAE <= 15 percentage points on 20% held-out test set",
+    "baseline": "Global mean prediction (MAE ~30 pp)",
+    "dataset": "IBM Credit Card Transactions (CC0 1.0)"
+  },
+  "sources": [
+    {
+      "file": "archive/sd254_users.csv",
+      "description": "2,000 synthetic cardholders \u2014 demographics, income, debt, FICO",
+      "committed": true,
+      "licence": "CC0 1.0"
+    },
+    {
+      "file": "archive/sd254_cards.csv",
+      "description": "6,146 card records \u2014 credit limits",
+      "committed": true,
+      "licence": "CC0 1.0"
+    },
+    {
+      "file": "archive/credit_card_transactions-ibm_v2.csv",
+      "description": "24M transaction rows \u2014 too large for GitHub (2.2 GB)",
+      "committed": false,
+      "fallback": "archive/User0_credit_card_transactions.csv",
+      "download_url": "https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions",
+      "licence": "CC0 1.0"
+    }
+  ],
   "artefacts": [
     {
       "file": "baseline_metric.json",
@@ -22,12 +52,12 @@
     {
       "file": "milestone_manifest.json",
       "size_bytes": 1584,
-      "sha256": "3a354a641dbf3c0bbb689d451dc1b15345b0859f44a1e3d315b2edf1eef3fb50"
+      "sha256": "6205611c6ea3158d6ec01334070220f9b72314743e0734d8cba752bc4d21e58a"
     },
     {
       "file": "model_coefficients.json",
-      "size_bytes": 672,
-      "sha256": "531caaa3d05b72d64bbe21a47b650e22f82ffc344e9c2ebb7c9d02ba66a7e64d"
+      "size_bytes": 673,
+      "sha256": "e18183d2532709331af795186ceb3f32ff278912ad8405e7af56d3914391e5d5"
     },
     {
       "file": "primary_metric.json",
@@ -36,18 +66,18 @@
     },
     {
       "file": "processed_data.csv",
-      "size_bytes": 436295,
-      "sha256": "2caa68d48eaab90b35a0532965c0330ffa7450a6a329798f2d9dc1e5f179417b"
+      "size_bytes": 436423,
+      "sha256": "50e4e6345687cbcb1558101923f2566201317c0c5c9c92b10c50935f137316d6"
     },
     {
       "file": "stratified_cur.csv",
-      "size_bytes": 242,
-      "sha256": "5abb036c5375cc71ec88892eba5ca12e4fbf1f04409b8f5fb7269984fff3bda7"
+      "size_bytes": 241,
+      "sha256": "4b91742f0d3fddfff8446424c6760d81fe4f10d8fa1b52a176179af2e88e1e6c"
     },
     {
       "file": "test_results.csv",
-      "size_bytes": 10434,
-      "sha256": "061c643be455be08c8a59ef5166d54833786af77f69f0f154ae6bea3f1f68f71"
+      "size_bytes": 10417,
+      "sha256": "64214873945df49754b0bf98fe14da17d2dd66651fb6520f43811f3c1ef1df53"
     }
   ]
 }

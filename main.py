@@ -370,6 +370,36 @@ def write_manifest() -> None:
         "team": ["Sanya Mittal", "Astha Rawat", "Divya Mahendru",
                  "Harsh Lathwal", "Siddhanth Pandita"],
         "generated_at": pd.Timestamp.now().isoformat(),
+        "charter": {
+            "file": "CHARTER.md",
+            "status": "approved",
+            "primary_metric": "MAE (Mean Absolute Error) of Ridge regression on CUR",
+            "threshold": "MAE <= 15 percentage points on 20% held-out test set",
+            "baseline": "Global mean prediction (MAE ~30 pp)",
+            "dataset": "IBM Credit Card Transactions (CC0 1.0)",
+        },
+        "sources": [
+            {
+                "file": "archive/sd254_users.csv",
+                "description": "2,000 synthetic cardholders — demographics, income, debt, FICO",
+                "committed": True,
+                "licence": "CC0 1.0",
+            },
+            {
+                "file": "archive/sd254_cards.csv",
+                "description": "6,146 card records — credit limits",
+                "committed": True,
+                "licence": "CC0 1.0",
+            },
+            {
+                "file": "archive/credit_card_transactions-ibm_v2.csv",
+                "description": "24M transaction rows — too large for GitHub (2.2 GB)",
+                "committed": False,
+                "fallback": "archive/User0_credit_card_transactions.csv",
+                "download_url": "https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions",
+                "licence": "CC0 1.0",
+            },
+        ],
         "artefacts": artefacts,
     }
     write_json(OUTPUTS / "milestone_manifest.json", manifest)

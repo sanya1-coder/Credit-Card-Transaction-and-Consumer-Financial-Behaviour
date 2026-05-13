@@ -28,5 +28,12 @@ def probe(name: str, path: pathlib.Path, nrows: int = 5) -> pd.DataFrame:
 if __name__ == "__main__":
     probe("users",  ARCHIVE / "sd254_users.csv")
     probe("cards",  ARCHIVE / "sd254_cards.csv")
-    probe("txns",   ARCHIVE / "credit_card_transactions-ibm_v2.csv")
-    print("\n[DONE] Probe complete - all three files are readable.")
+    # Fall back to the committed single-user sample if the full file is absent
+    txns_full  = ARCHIVE / "credit_card_transactions-ibm_v2.csv"
+    txns_small = ARCHIVE / "User0_credit_card_transactions.csv"
+    txns_path  = txns_full if txns_full.exists() else txns_small
+    probe("txns", txns_path)
+    print("\n[DONE] Probe complete - all files are readable.")
+    if not txns_full.exists():
+        print(f"NOTE: full transactions file not present; used fallback {txns_small.name}")
+        print("      Download full file from: https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions")
