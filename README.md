@@ -32,7 +32,7 @@ This project builds a **predictive model for Credit Utilisation Ratio (CUR)** �
 | Metric | Value |
 |---|---|
 | Baseline MAE (mean prediction) | 30.41 pp |
-| Model MAE (Ridge regression) | **12.79 pp** ✓ |
+| Model MAE (Ridge regression) | **12.88 pp** ✓ |
 | Threshold | 15.00 pp |
 | Improvement over baseline | **58 %** |
 
@@ -77,7 +77,7 @@ eco6810-credit-utilisation/
 | Model | MAE (pp) | Passed (≤ 15 pp) |
 |---|---|---|
 | Mean-prediction baseline | 30.41 | ✗ |
-| Ridge regression | **12.79** | **✓** |
+| Ridge regression | **12.88** | **✓** |
 
 ### Hypothesis tests
 
