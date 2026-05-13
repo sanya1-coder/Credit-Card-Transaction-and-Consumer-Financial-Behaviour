@@ -47,7 +47,10 @@ OUTPUTS.mkdir(exist_ok=True)
 
 USERS_CSV  = ARCHIVE / "sd254_users.csv"
 CARDS_CSV  = ARCHIVE / "sd254_cards.csv"
-TXNS_CSV   = ARCHIVE / "credit_card_transactions-ibm_v2.csv"
+TXNS_CSV_FULL   = ARCHIVE / "credit_card_transactions-ibm_v2.csv"
+TXNS_CSV_SMALL  = ARCHIVE / "User0_credit_card_transactions.csv"
+# Use the full file if available, otherwise fall back to the committed sample
+TXNS_CSV = TXNS_CSV_FULL if TXNS_CSV_FULL.exists() else TXNS_CSV_SMALL
 
 SAMPLE_ROWS = 500_000   # rows sampled per chunk pass from the 24 M transaction file
 RANDOM_SEED = 42
@@ -133,7 +136,7 @@ def load_txn_features() -> pd.DataFrame:
     MAX_CHUNKS chunks (~5 M rows) to keep runtime under 2 minutes.
     """
     MAX_CHUNKS = 50          # 50 × 500 K = 25 M rows  (full file coverage)
-    print(f"\n[2/7] Building txn features (reading up to {MAX_CHUNKS * SAMPLE_ROWS:,} rows) …")
+    print(f"\n[2/7] Building txn features from {TXNS_CSV.name} …")
     t0 = time.time()
 
     accum: dict[int, dict] = {}   # user_id → running stats
