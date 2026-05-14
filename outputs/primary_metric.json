@@ -2,6 +2,7 @@
   "metric_name": "MAE_model",
   "description": "Mean Absolute Error of the Ridge regression model",
   "value": 12.7915,
+  "unit": "percentage points",
   "threshold": 15.0,
   "passed": true,
   "n_test": 400,

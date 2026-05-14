@@ -7,7 +7,39 @@
     "Harsh Lathwal",
     "Siddhanth Pandita"
   ],
-  "generated_at": "2026-05-13T06:07:44.047353",
+  "generated_at": "2026-05-15T05:26:36.269687",
+  "charter_locked": true,
+  "run_command": "uv run main.py",
+  "baseline_ready": true,
+  "primary_metric_schema_ready": true,
+  "sources": [
+    {
+      "name": "sd254_users.csv",
+      "status": "ok",
+      "probe_artifact": "data/probe.py",
+      "description": "2,000 synthetic cardholders \u2014 demographics, income, debt, FICO",
+      "committed": true,
+      "licence": "CC0 1.0"
+    },
+    {
+      "name": "sd254_cards.csv",
+      "status": "ok",
+      "probe_artifact": "data/probe.py",
+      "description": "6,146 card records \u2014 credit limits",
+      "committed": true,
+      "licence": "CC0 1.0"
+    },
+    {
+      "name": "credit_card_transactions-ibm_v2.csv",
+      "status": "fallback",
+      "probe_artifact": "data/probe.py",
+      "description": "24M transaction rows \u2014 too large for GitHub (2.2 GB); fallback to User0_credit_card_transactions.csv",
+      "committed": false,
+      "fallback": "archive/User0_credit_card_transactions.csv",
+      "download_url": "https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions",
+      "licence": "CC0 1.0"
+    }
+  ],
   "charter": {
     "file": "CHARTER.md",
     "status": "approved",
@@ -16,33 +48,11 @@
     "baseline": "Global mean prediction (MAE ~30 pp)",
     "dataset": "IBM Credit Card Transactions (CC0 1.0)"
   },
-  "sources": [
-    {
-      "file": "archive/sd254_users.csv",
-      "description": "2,000 synthetic cardholders \u2014 demographics, income, debt, FICO",
-      "committed": true,
-      "licence": "CC0 1.0"
-    },
-    {
-      "file": "archive/sd254_cards.csv",
-      "description": "6,146 card records \u2014 credit limits",
-      "committed": true,
-      "licence": "CC0 1.0"
-    },
-    {
-      "file": "archive/credit_card_transactions-ibm_v2.csv",
-      "description": "24M transaction rows \u2014 too large for GitHub (2.2 GB)",
-      "committed": false,
-      "fallback": "archive/User0_credit_card_transactions.csv",
-      "download_url": "https://www.kaggle.com/datasets/ealtman2019/credit-card-transactions",
-      "licence": "CC0 1.0"
-    }
-  ],
   "artefacts": [
     {
       "file": "baseline_metric.json",
-      "size_bytes": 228,
-      "sha256": "4bab0af04bf8dc0e54e4ac78efaf0146b21897a38bc8426524b3ee9828a4f34f"
+      "size_bytes": 260,
+      "sha256": "ee0d2fbf5c30dbfe93b4ac5bd34c355b330cd865bc678e1b4310bc3b40dbb65e"
     },
     {
       "file": "hypothesis_tests.json",
@@ -51,8 +61,8 @@
     },
     {
       "file": "milestone_manifest.json",
-      "size_bytes": 1584,
-      "sha256": "6205611c6ea3158d6ec01334070220f9b72314743e0734d8cba752bc4d21e58a"
+      "size_bytes": 2702,
+      "sha256": "c7992a8a42e5da2470fc4c240933b41a5caa7fcd91ac64876842d85da112279d"
     },
     {
       "file": "model_coefficients.json",
@@ -61,8 +71,8 @@
     },
     {
       "file": "primary_metric.json",
-      "size_bytes": 544,
-      "sha256": "83c4ed8a398939739f65c61b669f20bf9327b0c627adf1e225b8be189c35595d"
+      "size_bytes": 576,
+      "sha256": "aacf91561b0f38db0f061ba1091317e04c5d390f9c7a664ec16fbba6e05eea86"
     },
     {
       "file": "processed_data.csv",
