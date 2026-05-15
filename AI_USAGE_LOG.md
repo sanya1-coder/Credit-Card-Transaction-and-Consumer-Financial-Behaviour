@@ -12,8 +12,8 @@ This log records every place AI assistance was used during the project, what it 
 
 | Area | AI used? | What we verified manually |
 |---|---|---|
-| Research question (CUR as target) | No | — |
-| Dataset selection and licence check | No | — |
+| Research question (CUR as target) | No | Chose CUR based on FICO scoring literature; decision made before any AI interaction |
+| Dataset selection and licence check | No | Evaluated dataset ourselves for field availability, licence (CC0 1.0), and size suitability |
 | Data loading and merge logic | Partially | Checked merge key, output shape, CUR range |
 | CUR construction formula | No | Derived from charter definition |
 | Feature engineering (15 features) | Partially | Reviewed each feature for domain sense |
