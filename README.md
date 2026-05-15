@@ -96,7 +96,7 @@ eco6810-credit-utilisation/
 | Q4 | 400 | 70.0 % | 1.92 |
 | Q5 (highest limits) | 400 | 54.0 % | 1.99 |
 
-> H₂ is not supported because `Total Debt` in this synthetic dataset represents cumulative lifetime debt, not a monthly revolving balance. This is documented in [`CHARTER.md`](CHARTER.md) §8 (Risks & Fallback).
+> H₂ is not supported as `Total Debt` in this synthetic dataset represents cumulative lifetime debt, not a monthly revolving balance. This is documented in [`CHARTER.md`](CHARTER.md) §8 (Risks & Fallback).
 
 ---
 
