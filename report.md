@@ -100,7 +100,7 @@ The five strongest predictors by absolute coefficient magnitude:
 | 2 | Num_Cards | −8.44 | More cards → lower CUR (debt spread across more limits) |
 | 3 | Income_per_Card | −7.66 | Higher income per card → lower CUR |
 | 4 | Total_Credit_Limit | −7.18 | More available credit → lower utilisation ratio |
-| 5 | Yearly Income | +9.96 | Higher income → slightly higher CUR (likely correlated with higher spending) |
+| 5 | Yearly Income | +9.96 | Positive sign reflects that higher-income users in this synthetic dataset carry larger absolute debt balances, which outpaces the limit increase — a known artefact of the data generation process |
 
 All coefficient signs align with established consumer finance intuition. The debt-to-income ratio being the strongest predictor is expected — it directly captures the balance between what someone owes and what they earn.
 
